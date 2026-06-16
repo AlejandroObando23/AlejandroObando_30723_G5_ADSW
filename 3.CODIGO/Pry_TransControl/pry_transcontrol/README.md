@@ -22,7 +22,15 @@
 
 ## 🏗️ Arquitectura
 
-El proyecto sigue una arquitectura en capas basada en **Clean Architecture** con los siguientes módulos:
+El proyecto implementa una **Arquitectura de Tres Capas**, separando claramente las responsabilidades del sistema:
+
+| Capa | Carpeta | Responsabilidad |
+|------|---------|----------------|
+| 📦 **Capa de Datos** | `lib/data/` | Acceso y persistencia de datos (repositorios, fuentes de datos) |
+| ⚙️ **Capa de Lógica de Negocio** | `lib/business/` | Reglas de negocio, entidades del dominio, casos de uso, patrones de diseño |
+| 🖥️ **Capa de Presentación** | `lib/presentation/` | Interfaz de usuario, pantallas, widgets, tema visual |
+
+### Estructura de archivos
 
 ```
 lib/
@@ -57,6 +65,52 @@ lib/
 │   └── navigation/              # Configuración de rutas
 └── utils/                       # Utilidades generales
 ```
+
+---
+
+## 🎨 Patrones de Diseño Implementados
+
+### 👁️ Patrón Observer — `travel_observer.dart`
+
+Permite que múltiples objetos sean **notificados automáticamente** cuando ocurre un evento en el sistema de viajes. Implementado con:
+
+- **Subject (`ViajeSubject`):** Emite eventos como `viaje_creado`, `viaje_cancelado`, `viaje_reprogramado`, `documento_vencido` y `desvio_ruta`.
+- **Observers:** Tres observadores concretos que reaccionan a los eventos:
+  - `CoordinadorObserver` — notifica al coordinador del sistema
+  - `SecretariaObserver` — notifica a la secretaria
+  - `TransportistaObserver` — notifica al transportista asignado
+
+```
+ViajeSubject (Subject)
+   ├── CoordinadorObserver
+   ├── SecretariaObserver
+   └── TransportistaObserver
+```
+
+> **Beneficio:** Desacoplamiento entre el sujeto y sus observadores. Añadir nuevos tipos de notificación no requiere modificar la lógica central.
+
+---
+
+### 🔀 Patrón Strategy — `route_strategy.dart`
+
+Permite **cambiar el algoritmo de cálculo de rutas en tiempo de ejecución**, sin modificar el contexto que lo usa. Implementado con:
+
+- **Interfaz (`RouteStrategy`):** Define el contrato `calcularRuta()`.
+- **Estrategias concretas:**
+  - `RutaMasRapidaStrategy` — prioriza el menor tiempo de viaje
+  - `RutaMasSeguraStrategy` — prioriza seguridad (puede ser más larga)
+  - `RutaMenorDistanciaStrategy` — prioriza la menor distancia en kilómetros
+- **Contexto (`RutaCalculadora`):** Usa la estrategia activa y permite cambiarla con `setEstrategia()`.
+
+```
+RouteStrategy (interfaz)
+   ├── RutaMasRapidaStrategy
+   ├── RutaMasSeguraStrategy
+   └── RutaMenorDistanciaStrategy
+        └── RutaCalculadora (contexto que las usa)
+```
+
+> **Beneficio:** Se puede cambiar el criterio de cálculo de ruta (rapidez, seguridad o distancia) sin tocar el resto del código.
 
 ---
 
