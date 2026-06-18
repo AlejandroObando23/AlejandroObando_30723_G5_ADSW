@@ -1,0 +1,25 @@
+[
+  {
+    "origen": "Cuenca",
+    "destino": "Ambato",
+    "pesoCarga": 10,
+    "tipoMercancia": "Alimentos Perecederos",
+    "contenedor": "",
+    "observaciones": "",
+    "id": "ad62c280-d7bf-4fcf-bcd9-2f2b8b9f5dda",
+    "estado": "Disponible",
+    "fechaCreacion": "2026-06-18T00:28:55.754Z"
+  },
+  {
+    "origen": "Cuenca",
+    "destino": "Carpungo",
+    "pesoCarga": 20,
+    "tipoMercancia": "Materiales Construcción",
+    "contenedor": "",
+    "observaciones": "",
+    "transportistaId": "df457164-108a-4d98-9cbd-c22121c19e38",
+    "id": "6b901814-299a-44e8-8eed-52e93e99b2ca",
+    "estado": "Disponible",
+    "fechaCreacion": "2026-06-18T00:38:12.239Z"
+  }
+]

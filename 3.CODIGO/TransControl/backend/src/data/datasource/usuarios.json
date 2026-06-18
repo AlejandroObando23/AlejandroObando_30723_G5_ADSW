@@ -1,0 +1,10 @@
+[
+  {
+    "id": "12345",
+    "nombres": "Admin Sistema",
+    "apellidos": "TransControl",
+    "correo": "admin@transcontrol.com",
+    "rolId": "Gerente",
+    "passwordHash": "$2b$10$AqMXXxLbGD/rVHwdAXc9TOKjGYD7XQlZMJ/63Jio8ESnCO0oztPES"
+  }
+]

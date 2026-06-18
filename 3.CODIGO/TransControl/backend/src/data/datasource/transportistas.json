@@ -1,0 +1,42 @@
+[
+  {
+    "id": "t1",
+    "cedula": "1712345678",
+    "nombres": "Luis Fernando",
+    "apellidos": "Mendoza",
+    "correo": "luis.mendoza@gmail.com",
+    "telefono": "0991234567",
+    "direccion": "Av. Amazonas, Quito",
+    "estado": "Activo"
+  },
+  {
+    "id": "t2",
+    "cedula": "0912345678",
+    "nombres": "Carlos",
+    "apellidos": "Zambrano",
+    "correo": "czambrano@hotmail.com",
+    "telefono": "0987654321",
+    "direccion": "Urdesa Central, Guayaquil",
+    "estado": "Activo"
+  },
+  {
+    "id": "t3",
+    "cedula": "0102345678",
+    "nombres": "María",
+    "apellidos": "Pérez",
+    "correo": "mperez@yahoo.com",
+    "telefono": "0976543210",
+    "direccion": "Centro Histórico, Cuenca",
+    "estado": "Inactivo"
+  },
+  {
+    "cedula": "1718230490",
+    "nombres": "Juanito",
+    "apellidos": "Alvarez",
+    "correo": "jdquimbiulco@gmail.com",
+    "telefono": "0963920340",
+    "direccion": "Quito",
+    "estado": "Activo",
+    "id": "df457164-108a-4d98-9cbd-c22121c19e38"
+  }
+]
