@@ -35,6 +35,9 @@ const upload = multer({ storage });
 const router = Router();
 const documentoController = new DocumentoController();
 
+router.get('/', documentoController.getAll);
 router.post('/upload', upload.single('documento'), documentoController.upload);
+router.post('/import', upload.single('documento'), documentoController.import);
+router.delete('/:id', documentoController.delete);
 
 export default router;

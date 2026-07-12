@@ -1,0 +1,66 @@
+[
+  {
+    "id": "f8d95e66-e970-4447-b055-0725e2a6ec24",
+    "tipo": "SOAT",
+    "estado": "Aprobado",
+    "rutaArchivo": "uploads/soat/soat_test_1.pdf",
+    "transportistaId": "t1",
+    "vencimiento": "2027-04-20"
+  },
+  {
+    "id": "e6a04847-028b-45c4-9e3a-89b0f7408239",
+    "tipo": "Licencia Profesional",
+    "estado": "Pendiente",
+    "rutaArchivo": "uploads/licencias/licencia_test_2.pdf",
+    "transportistaId": "t2",
+    "vencimiento": "2028-11-15"
+  },
+  {
+    "id": "5042dced-fa9b-4699-a9f9-8bbedaadd98a",
+    "tipo": "Matricula",
+    "estado": "Rechazado",
+    "rutaArchivo": "uploads/matriculas/matricula_test_3.pdf",
+    "transportistaId": "t3",
+    "vencimiento": "2025-01-10"
+  },
+  {
+    "id": "7b6cb1b1-768f-4999-ac52-4febdfeedb5a",
+    "tipo": "Revision Tecnica",
+    "estado": "Aprobado",
+    "rutaArchivo": "uploads/revisiones/revision_csv_test.pdf",
+    "transportistaId": "t1",
+    "vencimiento": "2027-02-14"
+  },
+  {
+    "id": "e4ad2c1a-2987-4f63-9a63-1fcad1b60aa9",
+    "tipo": "SOAT",
+    "estado": "Pendiente",
+    "rutaArchivo": "uploads/soat/soat_csv_test.pdf",
+    "transportistaId": "t2",
+    "vencimiento": "2026-10-30"
+  },
+  {
+    "id": "09b82ab0-a709-40a2-ae3f-9001e8e0ccbc",
+    "tipo": "SOAT",
+    "estado": "Aprobado",
+    "rutaArchivo": "uploads/soat/soat_test_1.pdf",
+    "transportistaId": "t1",
+    "vencimiento": "2027-04-20"
+  },
+  {
+    "id": "7ca87604-2d09-4844-9183-c3dcdb018df1",
+    "tipo": "Licencia Profesional",
+    "estado": "Pendiente",
+    "rutaArchivo": "uploads/licencias/licencia_test_2.pdf",
+    "transportistaId": "t2",
+    "vencimiento": "2028-11-15"
+  },
+  {
+    "id": "d16408a9-565b-48fd-8b02-ae86c78139eb",
+    "tipo": "Matricula",
+    "estado": "Rechazado",
+    "rutaArchivo": "uploads/matriculas/matricula_test_3.pdf",
+    "transportistaId": "t3",
+    "vencimiento": "2025-01-10"
+  }
+]

@@ -1,0 +1,4 @@
+tipo,estado,rutaArchivo,transportistaId,vencimiento
+SOAT,Pendiente,uploads/soat/soat_csv_test.pdf,t2,2026-10-30
+Revision Tecnica,Aprobado,uploads/revisiones/revision_csv_test.pdf,t1,2027-02-14
+Licencia Profesional,Rechazado,uploads/licencias/licencia_csv_test.pdf,t3,2025-05-20

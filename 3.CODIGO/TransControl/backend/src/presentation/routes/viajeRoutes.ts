@@ -34,5 +34,7 @@ router.get('/', viajeController.getAll);
 router.post('/rutas/simular', viajeController.simularRuta);
 router.put('/:id/asignar', viajeController.assignTransportista);
 router.put('/:id/cancelar', viajeController.cancel);
+router.put('/:id/reprogramar', viajeController.reschedule);
+router.delete('/:id', viajeController.delete);
 
 export default router;

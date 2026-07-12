@@ -80,4 +80,35 @@ export class ViajeController {
       res.status(500).json({ error: error.message });
     }
   };
+
+  reschedule = async (req: Request, res: Response): Promise<void> => {
+    try {
+      const { fechaProgramada } = req.body;
+      if (!fechaProgramada) {
+        res.status(400).json({ error: 'La fecha programada es requerida' });
+        return;
+      }
+      const result = await this.viajeService.reschedule(req.params.id as string, fechaProgramada);
+      if (result) {
+        res.json(result);
+      } else {
+        res.status(404).json({ error: 'Viaje no encontrado' });
+      }
+    } catch (error: any) {
+      res.status(400).json({ error: error.message });
+    }
+  };
+
+  delete = async (req: Request, res: Response): Promise<void> => {
+    try {
+      const success = await this.viajeService.delete(req.params.id as string);
+      if (success) {
+        res.json({ message: 'Viaje eliminado correctamente' });
+      } else {
+        res.status(404).json({ error: 'Viaje no encontrado' });
+      }
+    } catch (error: any) {
+      res.status(400).json({ error: error.message });
+    }
+  };
 }

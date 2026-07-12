@@ -38,5 +38,71 @@
     "direccion": "Quito",
     "estado": "Activo",
     "id": "df457164-108a-4d98-9cbd-c22121c19e38"
+  },
+  {
+    "id": "e1490db2-d510-448e-8752-0b662a0f5557",
+    "cedula": "1727641407",
+    "nombres": "Pepe",
+    "apellidos": "Caiza",
+    "correo": "pepe@caiza.com",
+    "telefono": "0990323773",
+    "direccion": "Registrado vía Login",
+    "estado": "Activo"
+  },
+  {
+    "id": "acdbbd1d-17ab-4072-8612-8cbc4962147e",
+    "cedula": "1710746684",
+    "nombres": "Martin",
+    "apellidos": "Estrada",
+    "correo": "martin@gmail.com",
+    "telefono": "0980246130",
+    "direccion": "Registrado vía Login",
+    "estado": "Activo"
+  },
+  {
+    "id": "db31ae78-0c76-433e-8767-131009085b24",
+    "cedula": "1712345678",
+    "nombres": "Pepe",
+    "apellidos": "Caiza",
+    "correo": "pepe@gmail.com",
+    "telefono": "0987654321",
+    "direccion": "Registrado vía Login",
+    "estado": "Activo"
+  },
+  {
+    "cedula": "1802102101",
+    "nombres": "Jenny",
+    "apellidos": "Cruz",
+    "correo": "jruiz@espe.edu.ec",
+    "telefono": "0985313365",
+    "direccion": "Sangolqui",
+    "estado": "Activo",
+    "vehiculo": {
+      "tipo": "Furgón",
+      "placa": "PDS-7899",
+      "marca": "Changan",
+      "anio": 2020
+    },
+    "id": "8192463a-d434-4388-a77d-b129a242b6c8"
+  },
+  {
+    "id": "8c4bc1e8-ceb3-423a-8b50-37871e4f34c1",
+    "cedula": "1712345675",
+    "nombres": "Steven",
+    "apellidos": "Egas",
+    "correo": "steven_probe_123@gmail.com",
+    "telefono": "0999999999",
+    "direccion": "Registrado vía Login",
+    "estado": "Activo"
+  },
+  {
+    "id": "ee98a447-5080-40ce-8c15-841b9ffec54f",
+    "cedula": "1714438569",
+    "nombres": "Steven",
+    "apellidos": "Egas",
+    "correo": "steven_@gmail.com",
+    "telefono": "0912345678",
+    "direccion": "Registrado vía Login",
+    "estado": "Activo"
   }
 ]

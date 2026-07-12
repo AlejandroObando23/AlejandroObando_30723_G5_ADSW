@@ -2,6 +2,7 @@ import { Viaje } from '../../domain/entities/Viaje';
 import { IViajeRepository } from '../../domain/interfaces/IViajeRepository';
 import { ViajeSubject } from '../../domain/observer/travel_observer';
 import { v4 as uuidv4 } from 'uuid';
+import { RutaCalculadora, RutaMasRapidaStrategy, RutaMasSeguraStrategy, RutaMenorDistanciaStrategy } from '../strategies/route_strategy';
 
 export class ViajeService {
   private viajeRepository: IViajeRepository;
@@ -12,9 +13,33 @@ export class ViajeService {
     this.observer = observer;
   }
 
-  async create(data: Omit<Viaje, 'id' | 'estado' | 'fechaCreacion'>): Promise<Viaje> {
+  async create(data: Omit<Viaje, 'id' | 'estado' | 'fechaCreacion'> & { criterio?: string }): Promise<Viaje> {
+    const { criterio, ...viajeData } = data;
+
+    // Calcular ruta usando el patrón Strategy si se especifica un criterio
+    let rutaInfo: any = {};
+    if (criterio) {
+      let estrategia;
+      switch(criterio) {
+        case 'segura': estrategia = new RutaMasSeguraStrategy(); break;
+        case 'corta': estrategia = new RutaMenorDistanciaStrategy(); break;
+        case 'rapida': 
+        default: estrategia = new RutaMasRapidaStrategy(); break;
+      }
+      const calculadora = new RutaCalculadora(estrategia);
+      const resultado = calculadora.ejecutarCalculo(viajeData.origen, viajeData.destino);
+      rutaInfo = {
+        rutaCriterio: resultado.criterio,
+        rutaTiempoEstimado: resultado.tiempoEstimado,
+        rutaDistancia: resultado.distancia,
+        rutaPeajes: resultado.peajes,
+        rutaCamino: resultado.camino
+      };
+    }
+
     const nuevo: Viaje = {
-      ...data,
+      ...viajeData,
+      ...rutaInfo,
       id: uuidv4(),
       estado: 'Disponible',
       fechaCreacion: new Date(),
@@ -52,5 +77,23 @@ export class ViajeService {
       this.observer.notificarViajeCancelado(actualizado);
     }
     return actualizado;
+  }
+
+  async reschedule(id: string, fechaProgramada: string): Promise<Viaje | null> {
+    const actualizado = await this.viajeRepository.update(id, { 
+      fechaProgramada
+    });
+    if (actualizado) {
+      this.observer.notify('VIAJE_REPROGRAMADO', actualizado);
+    }
+    return actualizado;
+  }
+
+  async delete(id: string): Promise<boolean> {
+    const success = await this.viajeRepository.delete(id);
+    if (success) {
+      this.observer.notify('VIAJE_ELIMINADO', { id });
+    }
+    return success;
   }
 }

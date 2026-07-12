@@ -4,6 +4,7 @@ import transportistaRoutes from './presentation/routes/transportistaRoutes';
 import viajeRoutes from './presentation/routes/viajeRoutes';
 import authRoutes from './presentation/routes/authRoutes';
 import documentoRoutes from './presentation/routes/documentoRoutes';
+import { AuthService } from './business/services/AuthService';
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -24,4 +25,5 @@ app.get('/health', (req, res) => {
 app.listen(PORT, () => {
   console.log(`🚀 Server is running on port ${PORT}`);
   console.log('API Base URL: http://localhost:3000/api');
+  new AuthService().syncExistingTransportistas().catch(console.error);
 });

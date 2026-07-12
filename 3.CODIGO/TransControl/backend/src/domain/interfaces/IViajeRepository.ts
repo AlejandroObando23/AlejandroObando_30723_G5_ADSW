@@ -5,4 +5,5 @@ export interface IViajeRepository {
   update(id: string, viaje: Partial<Viaje>): Promise<Viaje | null>;
   findById(id: string): Promise<Viaje | null>;
   findAll(): Promise<Viaje[]>;
+  delete(id: string): Promise<boolean>;
 }

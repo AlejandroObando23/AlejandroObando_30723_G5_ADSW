@@ -43,6 +43,7 @@ export function Navigation() {
     if (path.includes('viajes')) return 'Viajes';
     if (path.includes('documentos')) return 'Documentación';
     if (path.includes('monitoreo')) return 'Monitoreo de Rutas';
+    if (path.includes('reportes')) return 'Reportes y Planificación de Rutas';
     if (path.includes('auditoria')) return 'Auditoría del Sistema';
     return 'TransControl';
   };

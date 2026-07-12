@@ -48,4 +48,13 @@ export class JsonViajeAdapter implements IViajeRepository {
   async findAll(): Promise<Viaje[]> {
     return await this.storage.readAll();
   }
+
+  async delete(id: string): Promise<boolean> {
+    const data = await this.storage.readAll();
+    const index = data.findIndex(v => v.id === id);
+    if (index === -1) return false;
+    data.splice(index, 1);
+    await this.storage.writeAll(data);
+    return true;
+  }
 }

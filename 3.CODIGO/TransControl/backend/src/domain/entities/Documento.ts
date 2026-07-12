@@ -5,4 +5,5 @@ export interface Documento {
   rutaArchivo: string;
   transportistaId?: string;
   vehiculoId?: string;
+  vencimiento?: string;
 }

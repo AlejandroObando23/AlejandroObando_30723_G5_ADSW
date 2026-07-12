@@ -18,5 +18,45 @@
     "correo": "pepe@caiza.com",
     "rolId": "Transportista",
     "passwordHash": "$2b$10$oMhtSfeGW2o5TJDp2qg6A.QIjijGK5zfDkZDi/2qgF/MDN.W0DIGq"
+  },
+  {
+    "id": "acdbbd1d-17ab-4072-8612-8cbc4962147e",
+    "nombres": "Martin",
+    "apellidos": "Estrada",
+    "cedula": "1710746684",
+    "telefono": "0980246130",
+    "correo": "martin@gmail.com",
+    "rolId": "Transportista",
+    "passwordHash": "$2b$10$7izXSm0QeEcIbyHM1ZqYk.zx3e8sinkBB3I6xko5BCHJ/D9JOh5ai"
+  },
+  {
+    "id": "db31ae78-0c76-433e-8767-131009085b24",
+    "nombres": "Pepe",
+    "apellidos": "Caiza",
+    "cedula": "1712345678",
+    "telefono": "0987654321",
+    "correo": "pepe@gmail.com",
+    "rolId": "Transportista",
+    "passwordHash": "$2b$10$XEHObX5X6AeoBJeJ9NKMhOWaW.hgtFSUee5PtNlZk09WAghT3BW2G"
+  },
+  {
+    "id": "8c4bc1e8-ceb3-423a-8b50-37871e4f34c1",
+    "nombres": "Steven",
+    "apellidos": "Egas",
+    "cedula": "1712345675",
+    "telefono": "0999999999",
+    "correo": "steven_probe_123@gmail.com",
+    "rolId": "Transportista",
+    "passwordHash": "$2b$10$tQV2gRof5h4BwJKFEyj1fOwHLXpy0sENv.SOQ6wx2K71kpc4OWLr2"
+  },
+  {
+    "id": "ee98a447-5080-40ce-8c15-841b9ffec54f",
+    "nombres": "Steven",
+    "apellidos": "Egas",
+    "cedula": "1714438569",
+    "telefono": "0912345678",
+    "correo": "steven_@gmail.com",
+    "rolId": "Transportista",
+    "passwordHash": "$2b$10$o1awmoGeGZxSb39jYP8sHOy0qkxLVnTtRkk3GvXor1qEwN084Qwc."
   }
 ]

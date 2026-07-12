@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Container, Row, Col, Spinner } from 'react-bootstrap';
+import { Container, Row, Col, Spinner, Alert } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { api } from '../services/api';
 
@@ -22,7 +22,7 @@ export function Dashboard() {
 
         if (isDriver && currentUser) {
           const driversResponse = await api.get('/transportistas');
-          const driver = driversResponse.data.find((t: any) => t.cedula === currentUser.cedula);
+          const driver = driversResponse.data.find((t: any) => t.cedula === currentUser.cedula || t.correo === currentUser.correo);
           if (driver) {
             trips = trips.filter((v: any) => v.transportistaId === driver.id);
           } else {
@@ -59,6 +59,16 @@ export function Dashboard() {
   return (
     <Container className="mb-5" style={{ marginTop: '40px' }}>
       
+      {isTransportista && viajes.some(v => v.estado === 'Asignado') && (
+        <Alert variant="warning" className="mb-4 shadow-sm border-0 d-flex align-items-center p-3" style={{ borderRadius: '12px', background: '#fffbeb', borderLeft: '5px solid #d97706' }}>
+          <i className="bi bi-bell-fill text-warning me-3 fs-3"></i>
+          <div>
+            <strong className="d-block text-tc-blue" style={{ fontSize: '1.05rem' }}>¡Tienes un nuevo viaje asignado!</strong>
+            <span className="text-muted small">Tienes {viajes.filter(v => v.estado === 'Asignado').length} viaje(s) pendiente(s) de iniciar.</span>
+          </div>
+        </Alert>
+      )}
+
       <Row className="g-4 mb-5">
         <Col md={3} xs={6}>
           <div className="summary-card accent-blue">
@@ -107,10 +117,12 @@ export function Dashboard() {
       </Row>
 
       <h5 className="mb-4 fw-bold" style={{ color: 'var(--tc-blue-dark)' }}>Acciones Rápidas</h5>
-      <Row className="g-4 mb-5">
-        {!isTransportista && (
-          <>
-            <Col md={3} sm={6}>
+
+      {!isTransportista ? (
+        /* Admin: 5 tarjetas → fila 1: 3 cards, fila 2: 2 cards centradas */
+        <>
+          <Row className="g-4 mb-2">
+            <Col md={4} sm={6}>
               <Link to="/transportistas" className="action-card">
                 <div className="icon-wrapper">
                   <i className="bi bi-people-fill"></i>
@@ -119,7 +131,7 @@ export function Dashboard() {
                 <div className="desc">Gestión y control de conductores</div>
               </Link>
             </Col>
-            <Col md={3} sm={6}>
+            <Col md={4} sm={6}>
               <Link to="/viajes" className="action-card">
                 <div className="icon-wrapper">
                   <i className="bi bi-cursor-fill"></i>
@@ -128,7 +140,7 @@ export function Dashboard() {
                 <div className="desc">Asignación y seguimiento</div>
               </Link>
             </Col>
-            <Col md={3} sm={6}>
+            <Col md={4} sm={6}>
               <Link to="/documentos" className="action-card">
                 <div className="icon-wrapper">
                   <i className="bi bi-file-earmark-check-fill"></i>
@@ -137,18 +149,42 @@ export function Dashboard() {
                 <div className="desc">Validación de licencias y SOAT</div>
               </Link>
             </Col>
-          </>
-        )}
-        <Col md={isTransportista ? 12 : 3} sm={isTransportista ? 12 : 6}>
-          <Link to="/monitoreo" className="action-card">
-            <div className="icon-wrapper">
-              <i className="bi bi-geo-alt-fill"></i>
-            </div>
-            <div className="title">Monitoreo GPS</div>
-            <div className="desc">Rastreo de flota en tiempo real</div>
-          </Link>
-        </Col>
-      </Row>
+          </Row>
+          <Row className="g-4 mb-5 justify-content-center">
+            <Col md={4} sm={6}>
+              <Link to="/reportes" className="action-card">
+                <div className="icon-wrapper" style={{ background: 'rgba(139,92,246,0.1)', color: '#8B5CF6' }}>
+                  <i className="bi bi-bar-chart-line-fill"></i>
+                </div>
+                <div className="title">Reportes y Rutas</div>
+                <div className="desc">Análisis y planificación de rutas</div>
+              </Link>
+            </Col>
+            <Col md={4} sm={6}>
+              <Link to="/monitoreo" className="action-card">
+                <div className="icon-wrapper">
+                  <i className="bi bi-geo-alt-fill"></i>
+                </div>
+                <div className="title">Monitoreo GPS</div>
+                <div className="desc">Rastreo de flota en tiempo real</div>
+              </Link>
+            </Col>
+          </Row>
+        </>
+      ) : (
+        /* Transportista: solo Monitoreo, ancho completo */
+        <Row className="g-4 mb-5">
+          <Col xs={12}>
+            <Link to="/monitoreo" className="action-card">
+              <div className="icon-wrapper">
+                <i className="bi bi-geo-alt-fill"></i>
+              </div>
+              <div className="title">Monitoreo GPS</div>
+              <div className="desc">Rastreo de flota en tiempo real</div>
+            </Link>
+          </Col>
+        </Row>
+      )}
 
       <div className="d-flex justify-content-between align-items-center mb-4">
         <h5 className="fw-bold m-0" style={{ color: 'var(--tc-blue-dark)' }}>Actividad Reciente</h5>

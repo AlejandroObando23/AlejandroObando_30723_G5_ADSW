@@ -70,7 +70,9 @@ export const viajeSchema = z.object({
     .optional()
     .or(z.literal('')),
   observaciones: z.string().optional(),
-  transportistaId: z.string().optional()
+  transportistaId: z.string().optional(),
+  criterio: z.string().optional(),
+  fechaProgramada: z.string().optional()
 });
 
 export const documentoSchema = z.object({

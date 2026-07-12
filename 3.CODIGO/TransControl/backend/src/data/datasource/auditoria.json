@@ -12,5 +12,124 @@
     "modulo": "SistemaObserver",
     "fecha": "2026-06-18T00:38:12.246Z",
     "usuario": "Sistema"
+  },
+  {
+    "id": "2d9be3d8-1274-4b81-a097-e6908ad96611",
+    "accion": "Evento disparado: VIAJE_CREADO",
+    "modulo": "SistemaObserver",
+    "fecha": "2026-06-18T14:42:44.207Z",
+    "usuario": "Sistema"
+  },
+  {
+    "id": "bc8fb0df-122e-475f-b475-ae0d8d79c3d3",
+    "accion": "Evento disparado: VIAJE_CREADO",
+    "modulo": "SistemaObserver",
+    "fecha": "2026-06-18T14:44:42.330Z",
+    "usuario": "Sistema"
+  },
+  {
+    "id": "8155d5d2-2c47-4e5e-860c-2b1c20e610f6",
+    "accion": "Evento disparado: VIAJE_CREADO",
+    "modulo": "SistemaObserver",
+    "fecha": "2026-06-18T14:48:51.203Z",
+    "usuario": "Sistema"
+  },
+  {
+    "id": "da80fd8c-399f-4015-a41b-847330f5e1cf",
+    "accion": "Evento disparado: VIAJE_CREADO",
+    "modulo": "SistemaObserver",
+    "fecha": "2026-06-18T14:48:52.723Z",
+    "usuario": "Sistema"
+  },
+  {
+    "id": "ddb54cd3-2006-4643-b2fc-d0bcbc94765c",
+    "accion": "Evento disparado: VIAJE_CREADO",
+    "modulo": "SistemaObserver",
+    "fecha": "2026-06-18T14:48:54.510Z",
+    "usuario": "Sistema"
+  },
+  {
+    "id": "de163cda-5947-40b4-aaf7-3781a4c36c1b",
+    "accion": "Evento disparado: VIAJE_ASIGNADO",
+    "modulo": "SistemaObserver",
+    "fecha": "2026-06-18T14:59:02.788Z",
+    "usuario": "Sistema"
+  },
+  {
+    "id": "68292a98-458c-4684-bb1f-7dba8014b1fd",
+    "accion": "Evento disparado: VIAJE_CREADO",
+    "modulo": "SistemaObserver",
+    "fecha": "2026-06-18T15:00:28.410Z",
+    "usuario": "Sistema"
+  },
+  {
+    "id": "4ac46e65-5ab8-4114-94b1-f7531c90de31",
+    "accion": "Evento disparado: VIAJE_ELIMINADO",
+    "modulo": "SistemaObserver",
+    "fecha": "2026-06-18T15:01:35.209Z",
+    "usuario": "Sistema"
+  },
+  {
+    "id": "73f4a513-c74c-4861-8fc1-91b7f1818b47",
+    "accion": "Evento disparado: VIAJE_ELIMINADO",
+    "modulo": "SistemaObserver",
+    "fecha": "2026-06-18T15:01:49.299Z",
+    "usuario": "Sistema"
+  },
+  {
+    "id": "f8a60bd4-432c-41a8-8a14-730fb077a5a3",
+    "accion": "Evento disparado: VIAJE_ASIGNADO",
+    "modulo": "SistemaObserver",
+    "fecha": "2026-06-18T15:02:43.329Z",
+    "usuario": "Sistema"
+  },
+  {
+    "id": "5dc6b5ca-d650-4077-b858-4e936d61d296",
+    "accion": "Evento disparado: VIAJE_ELIMINADO",
+    "modulo": "SistemaObserver",
+    "fecha": "2026-06-18T15:03:38.111Z",
+    "usuario": "Sistema"
+  },
+  {
+    "id": "ab5c6d02-5f55-4e20-a1ae-17f9a6ac1f4f",
+    "accion": "Evento disparado: VIAJE_CREADO",
+    "modulo": "SistemaObserver",
+    "fecha": "2026-06-18T15:03:55.808Z",
+    "usuario": "Sistema"
+  },
+  {
+    "id": "2b96ee17-60cb-4660-b68c-f9a44d14a4a1",
+    "accion": "Evento disparado: VIAJE_ELIMINADO",
+    "modulo": "SistemaObserver",
+    "fecha": "2026-06-18T15:08:46.556Z",
+    "usuario": "Sistema"
+  },
+  {
+    "id": "18d8149b-c3a4-4492-a427-4fc710ee9040",
+    "accion": "Evento disparado: VIAJE_ELIMINADO",
+    "modulo": "SistemaObserver",
+    "fecha": "2026-06-18T15:08:49.251Z",
+    "usuario": "Sistema"
+  },
+  {
+    "id": "6aac2587-b55a-48e9-8d41-f2ffb099987c",
+    "accion": "Evento disparado: VIAJE_CREADO",
+    "modulo": "SistemaObserver",
+    "fecha": "2026-06-18T15:38:45.877Z",
+    "usuario": "Sistema"
+  },
+  {
+    "id": "7529ee01-888f-418a-997c-a12320a551aa",
+    "accion": "Evento disparado: VIAJE_CREADO",
+    "modulo": "SistemaObserver",
+    "fecha": "2026-07-02T15:52:15.304Z",
+    "usuario": "Sistema"
+  },
+  {
+    "id": "7b9860f3-baf8-4b7e-827d-6a167595e27d",
+    "accion": "Evento disparado: VIAJE_CREADO",
+    "modulo": "SistemaObserver",
+    "fecha": "2026-07-07T16:45:57.523Z",
+    "usuario": "Sistema"
   }
 ]

@@ -6,7 +6,7 @@ import { api } from '../services/api';
 export function CrearViaje() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    origen: '', destino: '', tipoMercancia: '', pesoCarga: '', contenedor: '', observaciones: '', transportistaId: ''
+    origen: '', destino: '', tipoMercancia: '', pesoCarga: '', contenedor: '', observaciones: '', transportistaId: '', criterio: 'rapida', fechaProgramada: ''
   });
   const [transportistas, setTransportistas] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
@@ -129,6 +129,29 @@ export function CrearViaje() {
                     <option key={t.id} value={t.id}>{t.nombres} {t.apellidos} - Cédula: {t.cedula} - {t.vehiculo?.tipo || 'Transportista'}</option>
                   ))}
                 </Form.Select>
+              </div>
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-md-6 mb-4">
+              <label className="form-label small fw-bold text-muted">Criterio de Optimización de Ruta (Patrón Strategy)</label>
+              <div className="input-icon-wrapper">
+                <i className="bi bi-compass text-tc-orange"></i>
+                <Form.Select className="custom-input" required
+                  value={formData.criterio} onChange={e => setFormData({...formData, criterio: e.target.value})}>
+                  <option value="rapida">Ruta Más Rápida (Estrategia Rápida)</option>
+                  <option value="segura">Ruta Más Segura (Estrategia Segura)</option>
+                  <option value="corta">Ruta Menor Distancia (Estrategia Corta)</option>
+                </Form.Select>
+              </div>
+            </div>
+            <div className="col-md-6 mb-4">
+              <label className="form-label small fw-bold text-muted">Fecha Programada del Viaje</label>
+              <div className="input-icon-wrapper">
+                <i className="bi bi-calendar-event text-tc-blue"></i>
+                <Form.Control type="date" className="custom-input" required
+                  value={formData.fechaProgramada} onChange={e => setFormData({...formData, fechaProgramada: e.target.value})} />
               </div>
             </div>
           </div>

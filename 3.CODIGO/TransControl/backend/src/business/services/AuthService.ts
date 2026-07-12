@@ -1,4 +1,5 @@
 import { JsonUsuarioAdapter } from '../../data/adapters/JsonUsuarioAdapter';
+import { TransportistaRepository } from '../../data/repositories/TransportistaRepository';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { v4 as uuidv4 } from 'uuid';
@@ -32,7 +33,27 @@ export class AuthService {
       passwordHash
     };
 
-    return await this.adapter.create(usuario);
+    const newUser = await this.adapter.create(usuario);
+
+    // Sincronizar automáticamente con la colección de transportistas si es conductor
+    if (usuario.rolId === 'Transportista') {
+      try {
+        await TransportistaRepository.create({
+          id: usuario.id,
+          cedula: usuario.cedula,
+          nombres: usuario.nombres,
+          apellidos: usuario.apellidos,
+          correo: usuario.correo,
+          telefono: usuario.telefono,
+          direccion: 'Registrado vía Login',
+          estado: 'Activo'
+        });
+      } catch (err) {
+        console.error('Error al sincronizar conductor al registrarse:', err);
+      }
+    }
+
+    return newUser;
   }
 
   async login(correo: string, password: string) {
@@ -46,7 +67,35 @@ export class AuthService {
     
     return {
       token,
-      usuario: { id: user.id, nombres: user.nombres, correo: user.correo, rol: user.rolId }
+      usuario: { id: user.id, nombres: user.nombres, correo: user.correo, rol: user.rolId, cedula: user.cedula }
     };
+  }
+
+  async syncExistingTransportistas() {
+    try {
+      const users = await this.adapter.findAll();
+      const transportistasList = await TransportistaRepository.findAll();
+      
+      for (const user of users) {
+        if (user.rolId === 'Transportista') {
+          const exists = transportistasList.some(t => t.id === user.id || t.cedula === user.cedula);
+          if (!exists) {
+            console.log(`[Sync] Sincronizando transportista registrado por login: ${user.nombres} ${user.apellidos}`);
+            await TransportistaRepository.create({
+              id: user.id,
+              cedula: user.cedula,
+              nombres: user.nombres,
+              apellidos: user.apellidos,
+              correo: user.correo,
+              telefono: user.telefono,
+              direccion: 'Registrado vía Login',
+              estado: 'Activo'
+            });
+          }
+        }
+      }
+    } catch (err) {
+      console.error('Error al sincronizar conductores existentes:', err);
+    }
   }
 }

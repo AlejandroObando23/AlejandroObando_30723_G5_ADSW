@@ -1,0 +1,23 @@
+[
+  {
+    "tipo": "SOAT",
+    "estado": "Aprobado",
+    "rutaArchivo": "uploads/soat/soat_test_1.pdf",
+    "transportistaId": "t1",
+    "vencimiento": "2027-04-20"
+  },
+  {
+    "tipo": "Licencia Profesional",
+    "estado": "Pendiente",
+    "rutaArchivo": "uploads/licencias/licencia_test_2.pdf",
+    "transportistaId": "t2",
+    "vencimiento": "2028-11-15"
+  },
+  {
+    "tipo": "Matricula",
+    "estado": "Rechazado",
+    "rutaArchivo": "uploads/matriculas/matricula_test_3.pdf",
+    "transportistaId": "t3",
+    "vencimiento": "2025-01-10"
+  }
+]

@@ -11,4 +11,10 @@ export interface Viaje {
   contenedor: string;
   observaciones: string;
   transportistaId?: string;
+  rutaCriterio?: string;
+  rutaTiempoEstimado?: string;
+  rutaDistancia?: string;
+  rutaPeajes?: number;
+  rutaCamino?: string;
+  fechaProgramada?: string;
 }

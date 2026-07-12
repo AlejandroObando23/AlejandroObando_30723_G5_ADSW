@@ -1,4 +1,5 @@
 import { ISystemObserver, SystemSubject } from './SystemObserver';
+import { SmsNotificationStrategy, PushNotificationStrategy } from '../../business/strategies/NotificationStrategies';
 
 // ==========================================
 // PATRÓN OBSERVER: OBSERVERS CONCRETOS
@@ -24,12 +25,21 @@ export class SecretariaObserver implements ISystemObserver {
 }
 
 export class TransportistaObserver implements ISystemObserver {
+  private smsStrategy = new SmsNotificationStrategy();
+  private pushStrategy = new PushNotificationStrategy();
+
   update(event: string, data: any): void {
     if (event === 'VIAJE_ASIGNADO' && data.transportistaId) {
-      console.log(`[TransportistaObserver] SMS/Push enviado al transportista ID ${data.transportistaId}: Tienes un nuevo viaje asignado (${data.origen} -> ${data.destino}).`);
+      const message = `Tienes un nuevo viaje asignado (${data.origen} -> ${data.destino}).`;
+      console.log(`[TransportistaObserver] SMS/Push enviado al transportista ID ${data.transportistaId}: ${message}`);
+      this.smsStrategy.send(data.transportistaId, message).catch(console.error);
+      this.pushStrategy.send(data.transportistaId, message).catch(console.error);
     }
     if (event === 'VIAJE_CANCELADO' && data.transportistaId) {
-      console.log(`[TransportistaObserver] SMS/Push enviado al transportista ID ${data.transportistaId}: Tu viaje ha sido cancelado.`);
+      const message = `Tu viaje ha sido cancelado.`;
+      console.log(`[TransportistaObserver] SMS/Push enviado al transportista ID ${data.transportistaId}: ${message}`);
+      this.smsStrategy.send(data.transportistaId, message).catch(console.error);
+      this.pushStrategy.send(data.transportistaId, message).catch(console.error);
     }
   }
 }

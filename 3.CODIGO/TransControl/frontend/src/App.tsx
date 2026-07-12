@@ -1,22 +1,22 @@
-import { BrowserRouter as Router, Routes, Route, Link, useLocation, Navigate } from 'react-router-dom';
+import type { ReactElement } from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { TransportistaList } from './pages/TransportistaList';
 import { CrearTransportista } from './pages/CrearTransportista';
 import { ViajesList } from './pages/ViajesList';
 import { CrearViaje } from './pages/CrearViaje';
 import { DocumentacionList } from './pages/DocumentacionList';
-import { AuditoriaList } from './pages/AuditoriaList';
 import { Login } from './pages/Login';
 import { Dashboard } from './pages/Dashboard';
 import { Monitoreo } from './pages/Monitoreo';
+import { Reportes } from './pages/Reportes';
 import { Registro } from './pages/Registro';
 import { RecuperarContrasena } from './pages/RecuperarContrasena';
 import { Navigation } from './components/Navigation';
-import { Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
 
-function ProtectedRoute({ children, allowedRoles }: { children: JSX.Element; allowedRoles?: string[] }) {
+function ProtectedRoute({ children, allowedRoles }: { children: ReactElement; allowedRoles?: string[] }) {
   const token = localStorage.getItem('token');
   if (!token) return <Navigate to="/login" replace />;
 
@@ -57,6 +57,7 @@ function App() {
           <Route path="/crear-viaje" element={<ProtectedRoute allowedRoles={adminRoles}><CrearViaje /></ProtectedRoute>} />
           <Route path="/documentos" element={<ProtectedRoute allowedRoles={adminRoles}><DocumentacionList /></ProtectedRoute>} />
           <Route path="/monitoreo" element={<ProtectedRoute allowedRoles={allRoles}><Monitoreo /></ProtectedRoute>} />
+          <Route path="/reportes" element={<ProtectedRoute allowedRoles={adminRoles}><Reportes /></ProtectedRoute>} />
         </Routes>
       </div>
     </Router>
